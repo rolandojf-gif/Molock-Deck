@@ -53,6 +53,16 @@ export default function App() {
     setCopied(false);
   }
 
+  function drawSimilarCard() {
+    const pool = CARDS.filter((card) => card.category === currentCard.category);
+    const candidates = pool.length > 1 ? pool.filter((card) => card.id !== currentCard.id) : pool;
+    const nextIndex = Math.floor(Math.random() * candidates.length);
+    setCurrentCard(candidates[nextIndex]);
+    setShowFavorites(false);
+    setCopied(false);
+    setCopiedExpanded(false);
+  }
+
   function drawCard() {
     const pool = filteredCards.length ? filteredCards : modeCards;
     const currentIndex = pool.findIndex((card) => card.id === currentCard.id);
@@ -365,6 +375,10 @@ export default function App() {
 
           <button className="primary" onClick={drawCard}>
             Robar carta
+          </button>
+
+          <button onClick={drawSimilarCard}>
+            Más como esta
           </button>
 
           <button onClick={copyPrompt}>
