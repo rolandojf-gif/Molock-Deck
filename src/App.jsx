@@ -28,6 +28,9 @@ export default function App() {
   const [favorites, setFavorites] = useState(getStoredFavorites());
   const [showFavorites, setShowFavorites] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [copiedExpanded, setCopiedExpanded] = useState(false);
+
+  const PROMPT_SUFFIX = `\n\nResponde en español de España. Quiero un análisis directo, técnico y sin suavidad corporativa. No me des una respuesta genérica ni motivacional. Si hay autoengaño, señálalo. Si mi premisa es floja, corrígela. Usa pensamiento de primeros principios, teoría de incentivos y consecuencias prácticas. Termina con una conclusión clara y accionable.`;
 
   const modeCards = useMemo(() => {
     const modeCats = MODE_CATEGORIES[activeMode];
@@ -77,6 +80,12 @@ export default function App() {
     await navigator.clipboard.writeText(currentCard.prompt);
     setCopied(true);
     setTimeout(() => setCopied(false), 1400);
+  }
+
+  async function copyExpandedPrompt() {
+    await navigator.clipboard.writeText(currentCard.prompt + PROMPT_SUFFIX);
+    setCopiedExpanded(true);
+    setTimeout(() => setCopiedExpanded(false), 1400);
   }
 
   const visibleCards = showFavorites ? favoriteCards : [currentCard];
@@ -359,7 +368,11 @@ export default function App() {
           </button>
 
           <button onClick={copyPrompt}>
-            {copied ? "Copiado. Ya no hay vuelta atrás." : "Copiar prompt"}
+            {copied ? "Prompt copiado" : "Copiar prompt"}
+          </button>
+
+          <button onClick={copyExpandedPrompt}>
+            {copiedExpanded ? "Prompt ampliado copiado" : "Copiar prompt ampliado"}
           </button>
 
           <button onClick={toggleFavorite}>
