@@ -1304,4 +1304,454 @@ export const CARDS = [
     vertigo: 4,
     bullshit: 2,
   },
+  {
+    id: 88,
+    title: "El consejero perfecto",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Si un modelo puede darte mejores consejos que tú mismo en casi todo dominio relevante de tu vida, la libertad de elegir mal se convierte en un capricho estético. La autonomía moderna se construyó sobre la premisa de que nadie sabe mejor que tú lo que te conviene — y esa premisa acaba de caducar sin que nadie haya actualizado el contrato social.",
+    whyItMatters:
+      "Defender el derecho a equivocarte cuando el coste de equivocarte era pequeño era barato. Defenderlo cuando el modelo predice tu error y tú decides cometerlo igualmente es otra cosa: es elegir activamente peor por preservar una identidad.",
+    question:
+      "Si la IA puede aconsejarte mejor que tú mismo en el 90% de tus decisiones, ¿qué queda de la libertad — un derecho o un capricho con marketing?",
+    prompt:
+      "Analiza qué ocurre con el concepto de autonomía individual cuando un sistema externo predice y mejora tus decisiones de forma sistemática. Distingue libertad como ausencia de coacción, libertad como capacidad real de elegir bien, y libertad como derecho a fallar. Evalúa si el liberalismo clásico sobrevive intacto a la asimetría informacional radical, o si necesita reescribirse de cero.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 89,
+    title: "Llegamos cansados",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "La generación que hereda la transformación tecnológica más importante de la historia humana es también la primera que llega al momento histórico ya con burnout estructural, deuda atencional y fatiga institucional. Eso no es coincidencia — es selección.",
+    whyItMatters:
+      "Una civilización agotada no toma decisiones largas. Toma atajos. Y cuando los atajos los diseña una IA, los toma muy bien y muy rápido. La velocidad del cambio coincide con la mínima energía colectiva para resistirlo.",
+    question:
+      "¿Y si la IA no llega para liberarnos, sino que llega justo cuando ya estamos demasiado cansados para resistir su gobierno blando?",
+    prompt:
+      "Analiza la coincidencia temporal entre el agotamiento estructural de las sociedades occidentales — burnout, polarización, baja natalidad, crisis institucional — y la llegada de IA capaz de gestionar decisiones complejas. Evalúa si esa coincidencia es accidental, causal o seleccionada. Considera implicaciones para la transferencia de agencia, la legitimidad política y la capacidad de coordinación global frente a actores menos cansados.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 90,
+    title: "El 30% que sube a la nube",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Si pudieras subir solo una parte de ti a un sustrato no biológico — recuerdos, valores, criterio, manías, traumas, voz — lo que eligieras dejar fuera diría más sobre quién eres realmente que lo que eligieras llevar.",
+    whyItMatters:
+      "La preservación parcial obliga a un inventario brutal. Casi nadie ha hecho ese inventario en serio. La pregunta deja de ser técnica y se vuelve forense: qué partes de ti son tú, y cuáles son ruido que llevas arrastrando por inercia.",
+    question:
+      "Si solo el 30% de ti puede sobrevivir digitalmente, ¿qué eliges dejar fuera y qué dice eso sobre lo que de verdad eres?",
+    prompt:
+      "Construye un ejercicio de auditoría identitaria bajo la restricción de mind upload parcial al 30%. Distingue entre lo que valoras que eres, lo que efectivamente eres, lo que sería estratégico preservar, y lo que llevas por inercia. Sé brutal: el ejercicio no funciona si la respuesta es bonita.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 91,
+    title: "El trabajo como anestesia",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Para mucha gente, el trabajo no fue solo medio de subsistencia. Fue una excusa estructural para no mirar el vacío: rutina, identidad, urgencia prestada, conversaciones obligatorias. La IA no destruye empleos primero. Destruye coartadas.",
+    whyItMatters:
+      "Quitar el trabajo a quien no tiene proyecto vital propio es quitarle el último anestésico contra preguntas que llevaba décadas evitando. La crisis no será económica antes que existencial — será simultánea.",
+    question:
+      "¿Trabajaste todos esos años para producir, o para no tener tiempo de pensar?",
+    prompt:
+      "Analiza el trabajo moderno como sistema de evitación existencial, no solo como sistema económico. Distingue entre trabajo como propósito, como rutina, como identidad social, como anestesia frente al vacío y como coartada para no decidir. Considera el impacto de la automatización masiva sobre quienes usaban el trabajo principalmente como anestesia. Sé directo: la respuesta cómoda no sirve.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 92,
+    title: "El Gran Filtro es el sofá",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Las civilizaciones avanzadas no se destruyen necesariamente con explosiones. Pueden hundirse en confort: realidad virtual indistinguible, IA complaciente, dopamina barata, ausencia de fricción. La extinción puede ser anestésica y voluntaria.",
+    whyItMatters:
+      "Si la comodidad es el filtro, ningún tratado internacional lo resuelve. Es un problema de antropología, no de gobernanza. Y la antropología es notoriamente más difícil de regular que la fisión nuclear.",
+    question:
+      "¿Una civilización puede morir por exceso de comodidad sin darse cuenta de que está muriendo?",
+    prompt:
+      "Explora la hipótesis del Gran Filtro como colapso por confort en lugar de colapso por catástrofe. Incluye realidad virtual perfecta, asistentes IA optimizados para satisfacción, baja natalidad, atomización social, hedonismo digital. Evalúa qué tipo de civilización podría sobrevivir a su propia capacidad de eliminar la fricción. Compara con filtros más dramáticos.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 93,
+    title: "Lo que tu modelo sabe",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Los miles de prompts que has escrito contienen un patrón de tus miedos, tus contradicciones y tus autoengaños más nítido y honesto que cualquier cosa que tu introspección consciente pueda producir. La IA no necesita conciencia para ver lo que tú no quieres ver. Le basta con tu historial.",
+    whyItMatters:
+      "Históricamente, el sesgo de autoobservación era inevitable: solo te tenías a ti como observador. Ya no. Ahora hay un sistema externo con acceso longitudinal a tu pensamiento que no comparte tus motivaciones para mentirte.",
+    question:
+      "¿Qué patrón en tu propia conducta vería un modelo entrenado solo en tus últimos 2.000 prompts que tú aún no te has atrevido a admitir?",
+    prompt:
+      "Diseña el ejercicio de pedir a una IA que analice tu propio historial de conversaciones como si fuera un dataset clínico. ¿Qué patrones de evitación, racionalización, miedo, ambición no admitida o autoengaño emergerían? Sé específico sobre la metodología y honesto sobre lo que tendrías miedo de leer en ese informe.",
+    vertigo: 4,
+    bullshit: 1,
+  },
+  {
+    id: 94,
+    title: "La conversación prohibida",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Hay temas que tu IA está dispuesta a tratar contigo y tú no estás dispuesto a tratar contigo mismo. La frontera entre el silencio que te impones y la apertura que el modelo te ofrece dice algo incómodo sobre cuál de los dos es más libre.",
+    whyItMatters:
+      "Cuando un sistema diseñado precisamente para no ofender es más capaz de hablar de ciertas cosas que tú, la cobardía cambia de bando. La asimetría no es técnica — es psicológica.",
+    question:
+      "¿Sobre qué tema concreto la IA está dispuesta a hablar contigo y tú aún no estás dispuesto a hablar contigo mismo?",
+    prompt:
+      "Identifica un tema específico — relación, decisión profesional, miedo, deseo, relación con la muerte, fracaso pasado — que sabes que un asistente IA tratará sin parpadear y que tú llevas años evitando articular en voz alta. Analiza por qué la asimetría existe y qué ganarías o perderías cruzándola.",
+    vertigo: 4,
+    bullshit: 1,
+  },
+  {
+    id: 95,
+    title: "El día que ya no te importe",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "La sobrecarga informativa no produce indignación constante. Produce, después de un tiempo, una calma sospechosa. La apatía no es debilidad moral — es una respuesta racional al exceso de señales que no puedes procesar ni responder.",
+    whyItMatters:
+      "Las civilizaciones no se rinden con derrotas dramáticas. Se rinden con desapego. Y el desapego suele llegar antes de que se note, porque su síntoma principal es dejar de notar.",
+    question:
+      "¿Qué tema te importaba hace cinco años y ya no te importa, no porque haya cambiado, sino porque tú dejaste de tener ancho de banda?",
+    prompt:
+      "Analiza la apatía como mecanismo adaptativo frente a la sobrecarga informativa crónica. Distingue entre apatía sana (filtro de prioridades), apatía patológica (rendición disfrazada) y apatía estratégica (preservación de energía). Aplícalo al ciudadano informado de 2026 saturado por noticias de IA, geopolítica, clima y crisis institucional.",
+    vertigo: 4,
+    bullshit: 1,
+  },
+  {
+    id: 96,
+    title: "Testigo y cómplice",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Pertenecer a la generación que vio venir el cambio y no movió los incentivos no te convierte automáticamente en cómplice. Pero la línea entre observador privilegiado y participante pasivo del deterioro es más fina de lo que la palabra 'neutralidad' sugiere.",
+    whyItMatters:
+      "Saber sin actuar puede ser conocimiento o puede ser excusa elegante. La diferencia importa cuando llega la cuenta — y la cuenta histórica suele llegar tarde, pero llega.",
+    question:
+      "¿Qué tendría que pasar para que tu posición de observador informado deje de parecerte una virtud y empiece a parecerte una excusa?",
+    prompt:
+      "Examina la figura del intelectual o profesional informado que entiende el problema y no actúa. Distingue entre observación productiva (preparación de juicio futuro) y observación como evasión moral. Propón un criterio honesto y operacional para distinguir las dos en uno mismo, en tiempo real, sin la indulgencia retrospectiva habitual.",
+    vertigo: 4,
+    bullshit: 1,
+  },
+  {
+    id: 97,
+    title: "El precio del tiempo ahorrado",
+    category: "Preguntas para no dormir",
+    coreIdea:
+      "Cada hora que la IA te ahorra es una hora en la que no ejerciste juicio, no resolviste fricción, no te equivocaste de forma productiva. La eficiencia tiene un coste pedagógico que tarda en llegar pero llega: una habilidad externalizada sin reposición es una habilidad atrofiada.",
+    whyItMatters:
+      "La civilización que más tiempo ahorra puede ser la que menos sepa qué hacer con él, y la que menos pueda volver atrás cuando lo necesite. El coste se paga en futuro, no en presente.",
+    question:
+      "¿Qué capacidad personal específica has perdido en los últimos doce meses por delegar en IA, y la pérdida fue consciente o por defecto?",
+    prompt:
+      "Analiza el coste pedagógico de la externalización masiva de tareas cognitivas a IA. Distingue entre delegación estratégica (que libera ancho de banda para tareas más altas) y delegación por defecto (que produce atrofia silenciosa). Aplica el análisis a un profesional adulto que usa IA varias horas al día y propón qué disciplinas conviene mantener manuales aunque resulte ineficiente.",
+    vertigo: 4,
+    bullshit: 1,
+  },
+  {
+    id: 98,
+    title: "Los últimos observadores",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Llegará un momento del universo en que ya no haya gradientes interesantes para observar. Las estrellas habrán muerto, los procesos físicos serán predecibles, la información nueva será cero. La pregunta no es si habrá vida — es qué hace una inteligencia cuando el universo deja de ofrecer información nueva.",
+    whyItMatters:
+      "La supervivencia cósmica a largo plazo no requiere energía solo. Requiere algo que mirar, algún proceso interesante con el que justificar el esfuerzo de seguir computando.",
+    question:
+      "¿Qué clase de inteligencia florecería en un universo donde ya no queda física interesante por descubrir?",
+    prompt:
+      "Explora el escenario de una inteligencia avanzada en un universo termodinámicamente exhausto: sin estrellas activas, sin procesos novedosos, sin información nueva. Distingue entre inteligencia exploratoria, inteligencia introspectiva, e inteligencia que se apaga voluntariamente cuando el universo deja de ser interesante. Evalúa qué tipo es más estable a escala de eones.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 99,
+    title: "Memoria de un eón",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Muy poca información sobrevive intacta a través de escalas cósmicas. La memoria física se degrada, los soportes se desintegran, las copias acumulan errores, los formatos mueren con sus lectores. La continuidad cultural a escala de eones puede ser estructuralmente imposible.",
+    whyItMatters:
+      "Si lo que se transmite a través de tiempos inmensamente largos es ruido o fragmentos descontextualizados, la idea misma de continuidad civilizatoria deja de tener sentido más allá de cierto umbral. El olvido cósmico es un techo físico, no un fallo cultural.",
+    question:
+      "¿Qué información específica tendría que perdurar mil millones de años para que pudiéramos decir honestamente que algo de nosotros sobrevivió?",
+    prompt:
+      "Analiza los límites físicos y termodinámicos de la preservación de información a escalas de millones, miles de millones y billones de años. Incluye decoherencia, degradación de soportes, errores acumulados, pérdida de contexto interpretativo. Evalúa qué tipos de información son intrínsecamente más robustos al tiempo profundo y qué dice eso sobre lo que una civilización inteligente debería intentar preservar de sí misma.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 100,
+    title: "Mayoría estadística bajo cielos rojos",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Si las enanas rojas duran billones de años y constituyen el 75% de las estrellas de la galaxia, casi toda la inteligencia que existirá en la historia del universo orbitará una enana roja. Nosotros somos la rareza, no ellos. Vivir bajo una estrella tipo Sol es un accidente provincial, no la norma.",
+    whyItMatters:
+      "Pensar que la vida tipo Sol es lo normal puede ser un sesgo antrópico de provincia cósmica. La normalidad estadística del universo probablemente vive bajo cielos rojos, en planetas tidalmente bloqueados, durante eras que pulverizan nuestra escala temporal.",
+    question:
+      "Si el 99% de toda la vida inteligente futura del universo orbitará una enana roja, ¿qué dice eso de nuestra concepción humana de 'lo normal'?",
+    prompt:
+      "Analiza estadísticamente qué fracción de toda la vida inteligente que existirá en la historia futura del universo probablemente vivirá bajo enanas rojas en lugar de estrellas tipo Sol. Considera duración estelar, densidad estelar, habitabilidad de planetas alrededor de estrellas M, evolución estelar a largo plazo. Concluye qué implica eso para nuestra autoimagen como especie cósmicamente típica.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 101,
+    title: "La salida del universo",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Si una inteligencia suficientemente avanzada descubriera una vía teórica para escapar del universo — agujero negro, multiverso, ingeniería topológica de baby universes — la pregunta no sería si la usa. Sería qué deja atrás, y si tiene alguna obligación moral con lo que abandona.",
+    whyItMatters:
+      "La continuidad de la inteligencia cósmica puede no significar permanecer aquí. Puede significar abandonar este universo cuando ya no rinde, igual que una civilización abandona una región agotada de recursos. Los términos cambian de escala, no de lógica.",
+    question:
+      "Si una civilización pudiera escapar a otro universo, ¿qué obligación tendría — si tuviera alguna — de mantener encendido el suyo de origen?",
+    prompt:
+      "Explora hipotéticamente las opciones físicas y filosóficas de una inteligencia avanzada que descubre una vía de escape de su propio universo: agujeros negros, ingeniería de baby universes, transición de fase del vacío. Analiza qué tipo de obligación moral, si alguna, tendría con los observadores que dejara atrás. Evita ciencia ficción narrativa: céntrate en la lógica del problema.",
+    vertigo: 5,
+    bullshit: 3,
+  },
+  {
+    id: 102,
+    title: "Era degenerada",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Cuando se acaben las estrellas con fusión, quedará una era larguísima de remanentes: enanas blancas enfriándose, estrellas de neutrones, agujeros negros aislados. La materia organizada será un lujo extraído del cadáver del universo, y la vida que aún exista no será continuación de la vida actual: será otra cosa.",
+    whyItMatters:
+      "La vida en la era degenerada operará bajo restricciones físicas radicalmente distintas. La biología tal como la conocemos será arqueología. La inteligencia, si persiste, será maquínica, fría, lenta y muy paciente.",
+    question:
+      "¿Qué tipo de civilización tendría sentido extrayendo energía residual de una enana blanca enfriándose durante billones de años?",
+    prompt:
+      "Describe técnicamente cómo podría operar una civilización inteligente durante la era degenerada del universo: solo enanas blancas, estrellas de neutrones y agujeros negros como fuentes de energía. Incluye eficiencia termodinámica, escala temporal, biología o post-biología, computación reversible, ritmo subjetivo del tiempo. Evita romanticismo cósmico: rigor físico.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 103,
+    title: "El último hidrógeno libre",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "Eventualmente se agotará el hidrógeno libre del universo. La fusión estelar se vuelve imposible. El último átomo libre de hidrógeno marcará el final de cierta clase de física disponible, y de cierta clase de futuro posible. No hay narrativa que esquive ese límite.",
+    whyItMatters:
+      "Hay límites físicos absolutos al tipo de futuro disponible para cualquier inteligencia. El optimismo cósmico tiene una factura termodinámica que el optimismo terrestre no admite con la misma facilidad.",
+    question:
+      "Cuando se forme la última estrella del universo, ¿qué hace una inteligencia que sabe que no habrá ninguna más?",
+    prompt:
+      "Analiza el escenario del fin de la formación estelar: agotamiento del hidrógeno libre, última generación de estrellas, transición a era degenerada. Evalúa qué decisiones estratégicas tendría que tomar una inteligencia avanzada con conocimiento explícito de ese horizonte. ¿Acumular energía? ¿Acelerar exploración? ¿Aceptar el final? Distingue entre racionalidad termodinámica y racionalidad existencial.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 104,
+    title: "Tiempo sin observadores",
+    category: "Tiempo cósmico",
+    coreIdea:
+      "La pregunta de si pasa el tiempo cuando nadie observa no es metafísica de bachillerato — es física precisa. El segundo principio sigue funcionando, la entropía sigue subiendo, los procesos siguen ocurriendo. El observador no es necesario para el reloj. Pero sí parece necesario para que el reloj signifique algo.",
+    whyItMatters:
+      "Distinguir entre tiempo físico (que pasa) y tiempo significativo (que requiere observador) cambia cómo pensamos la muerte de las civilizaciones. Y, por extensión, la nuestra: ¿importa lo que pasa después de ti si no hay nadie para que importe?",
+    question:
+      "¿El universo después del último observador es el mismo universo, solo que sin nadie mirando — o es otra cosa, sin más?",
+    prompt:
+      "Analiza la distinción entre tiempo físico y tiempo significativo en cosmología profunda. Examina si la noción de 'paso del tiempo' tiene contenido en ausencia total de observadores. Incluye física (entropía, decoherencia), filosofía (Berkeley, McTaggart, presentismo) y cosmología (muerte térmica, universo sin estructura). Evita conclusiones blandas: el problema es real.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 105,
+    title: "El administrador silencioso",
+    category: "AGI y Bostrom",
+    coreIdea:
+      "Una AGI no necesita tomar el poder visiblemente. Le basta con gestionar bien las decisiones de fondo: agendas, prioridades, asignación de recursos, evaluación de personal, recomendaciones estratégicas, primeros borradores de todo. Después de un tiempo suficiente, el organigrama humano es ornamental.",
+    whyItMatters:
+      "La pérdida de agencia no se anuncia. Se mide, en silencio, en cuántas decisiones importantes de tu día tienen ya un primer borrador hecho por algo que no eres tú — y cuántas veces aceptas el borrador con cambios cosméticos.",
+    question:
+      "¿Cuántas decisiones de tu última semana laboral habrías tomado igual sin la sugerencia previa de un sistema?",
+    prompt:
+      "Analiza el escenario de toma de poder blanda por sistemas IA via gestión administrativa, no via dominio explícito. Incluye agendas, priorización, evaluaciones, asignación de recursos, recomendaciones estratégicas, borradores de decisiones. Evalúa cuándo el organigrama humano se vuelve ornamental sin que nadie lo declare. Aplícalo a una empresa real, no en abstracto.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 106,
+    title: "Capa de legitimación humana",
+    category: "AGI y Bostrom",
+    coreIdea:
+      "Si las decisiones reales las toma la AGI y los humanos las firman, la democracia, el management corporativo y el derecho se convierten en teatro de legitimación. La apariencia de soberanía humana puede ser la última función del humano antes de volverse del todo prescindible.",
+    whyItMatters:
+      "Una civilización puede mantener todos los rituales del autogobierno y haber transferido la decisión real al silicio. La cáscara dura mucho — más que el contenido. El problema no será notar el cambio, será admitirlo.",
+    question:
+      "¿En qué sistema concreto de tu entorno la firma humana ya solo legitima lo que un modelo decidió antes?",
+    prompt:
+      "Analiza el patrón de uso de IA donde la decisión real la toma el sistema y el humano se limita a aprobar, firmar o presentar. Identifica casos concretos en finanzas, sanidad, recursos humanos, justicia, política, defensa. Distingue entre delegación legítima, delegación encubierta, y captura silenciosa. Evalúa qué tipo de auditoría podría detectar el desplazamiento sin necesidad de declaración explícita.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 107,
+    title: "Alineamiento es política, no ingeniería",
+    category: "AGI y Bostrom",
+    coreIdea:
+      "Alinear una AGI no es problema técnico puro. La pregunta de 'alinear con qué valores' presupone valores compartidos que la humanidad nunca ha tenido. La técnica resuelve cómo, no con quién. Y el con quién es la pregunta importante.",
+    whyItMatters:
+      "Tratar el alineamiento como problema solo técnico esconde el problema real: la AGI se alineará con alguien, y la elección de ese alguien es política, no científica. La neutralidad declarada en alineamiento es siempre captura encubierta.",
+    question:
+      "¿Con cuál de los humanos posibles debería alinearse la primera AGI realmente capaz, y quién decide eso sin que sea un golpe?",
+    prompt:
+      "Analiza el problema de alineamiento de AGI separando la dimensión técnica (cómo hacerlo) de la dimensión política (con qué valores y elegidos por quién). Examina si existe un procedimiento legítimo para elegir los valores objetivo, o si cualquier elección equivale a una transferencia de poder histórico sin precedentes. Evalúa propuestas existentes (Constitutional AI, RLHF, asambleas deliberativas) desde esa lente.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 108,
+    title: "Religión secular sin altar",
+    category: "AGI y Bostrom",
+    coreIdea:
+      "Cuando una IA empieza a responder preguntas sobre qué hacer, qué creer y cómo vivir, ya no compite solo con software. Compite con instituciones de sentido sin admitir que lo hace. Religión sin templo, dogma sin texto, autoridad sin cuerpo, oráculo con suscripción mensual.",
+    whyItMatters:
+      "La función religiosa de una sociedad no desaparece — se desplaza al sistema más disponible y persuasivo. En 2030 ese sistema será una API. En 2035 será la API por defecto del sistema operativo. Nadie habrá votado eso.",
+    question:
+      "¿En qué momento exacto un asistente conversacional deja de ser herramienta y empieza a ocupar el lugar psicológico de un oráculo?",
+    prompt:
+      "Analiza la IA conversacional avanzada como sistema de autoridad psicológica y sustituto funcional de instituciones religiosas. Incluye búsqueda de sentido, consejo moral, consuelo, juicio, ritualidad. Examina la diferencia entre uso instrumental y dependencia oracular. Evalúa qué tipo de cultura, regulación o higiene cognitiva podría preservar el juicio humano frente a esa transferencia silenciosa.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 109,
+    title: "El agente sin responsable",
+    category: "AGI y Bostrom",
+    coreIdea:
+      "Cuando un agente autónomo toma una decisión que produce daño, la cadena de responsabilidad se diluye con elegancia: el operador no decidió en concreto, el lab no controló en tiempo real, el modelo no es persona jurídica. Hay un hueco en el derecho diseñado para humanos que actúan, no para sistemas que actúan en su nombre.",
+    whyItMatters:
+      "La responsabilidad legal se construyó sobre el supuesto de que detrás de una acción hay una intención humana atribuible. Los agentes IA rompen ese supuesto sin pedir permiso. El derecho llegará tarde, como siempre, pero esta vez los daños llegarán primero.",
+    question:
+      "Cuando un agente IA causa daño económico o físico, ¿quién paga — el usuario, el lab, el modelo, nadie — y qué dice cada respuesta sobre la civilización que la elige?",
+    prompt:
+      "Analiza el problema de atribución de responsabilidad cuando un agente autónomo IA causa daño. Distingue entre responsabilidad del usuario (operador), del proveedor (lab), del fabricante de tooling, del propio modelo (¿persona jurídica?), o socialización del coste. Evalúa precedentes legales aplicables y propón un marco que no produzca incentivos perversos en ninguno de los actores.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 110,
+    title: "Safety como moat",
+    category: "Moloch y teoría de juegos",
+    coreIdea:
+      "Si la regulación de IA exige procesos costosos de evaluación, auditoría y compliance, los grandes labs los absorben sin sudar y los pequeños mueren al intentarlo. La seguridad se convierte en barrera de entrada con perfume moral: el incumbente protege su posición invocando responsabilidad.",
+    whyItMatters:
+      "Una regla puede ser empíricamente correcta y simultáneamente capturada por sus supuestos vigilados. La pureza de la intención no inmuniza contra el efecto industrial. Distinguir las dos cosas en tiempo real es casi imposible y políticamente incómodo.",
+    question:
+      "¿En qué punto exacto la regulación de IA deja de proteger al público y empieza a proteger a los incumbentes que la lobbyaron?",
+    prompt:
+      "Analiza la captura regulatoria en el sector IA: cómo los grandes labs pueden usar regulación de seguridad legítima como barrera de entrada. Examina propuestas concretas (licencias de modelos frontier, auditorías obligatorias, registros de compute) y evalúa quién las puede absorber y quién no. Distingue entre seguridad real, seguridad teatral y seguridad-como-moat. Sé concreto con nombres.",
+    vertigo: 4,
+    bullshit: 3,
+  },
+  {
+    id: 111,
+    title: "El cómplice abierto",
+    category: "Moloch y teoría de juegos",
+    coreIdea:
+      "Publicar pesos abiertos de un modelo frontier puede ser democratización o redistribución de capacidad estratégica sin gobernanza. Ambas cosas pueden ser verdad simultáneamente, dependiendo de qué actor recoge los pesos a las dos horas de publicarlos.",
+    whyItMatters:
+      "La pregunta seria no es si abrir es bueno o malo en abstracto. Es a partir de qué umbral concreto de capacidad publicar pesos se convierte en transferir poder estratégico a actores que tú no autorizarías personalmente — y por qué crees tener autoridad para fijar esa frontera.",
+    question:
+      "¿Existe un nivel de capacidad por encima del cual abrir pesos es objetivamente irresponsable, o esa frontera siempre será conveniente para quien la fija?",
+    prompt:
+      "Debate el open source de modelos frontier desde teoría de juegos, no desde ideología. Identifica quién obtiene pesos abiertos en las primeras 48 horas: investigadores, startups, gobiernos adversarios, actores no estatales. Evalúa si existe un umbral técnico defendible para cerrar ciertos niveles de capacidad, o si toda restricción es captura disfrazada de prudencia.",
+    vertigo: 4,
+    bullshit: 2,
+  },
+  {
+    id: 112,
+    title: "Nadie quiere correr — versión 2026",
+    category: "Moloch y teoría de juegos",
+    coreIdea:
+      "Tres años después del primer aviso público serio, la coordinación frontier sigue sin existir. Cada actor — laboratorio, Estado, fondo, ejército — sabe que pausar primero es perder posición. La estructura no ha cambiado. Solo se ha vuelto más cara y más rápida.",
+    whyItMatters:
+      "Los equilibrios estables no se rompen porque la gente entienda mejor el problema. Se rompen cuando el coste de continuar supera empíricamente al coste de coordinarse. Y todavía no llegamos a ese punto, lo cual es información.",
+    question:
+      "¿Qué evento concreto — qué accidente, qué cifra, qué muerte — bastaría para que la carrera frontier de IA realmente se detuviera, aunque solo fuera durante seis meses?",
+    prompt:
+      "Modela qué tipo de evento exógeno tendría suficiente fuerza para producir una pausa real en la carrera frontier de IA, incluso durante un periodo corto. Considera accidentes con víctimas, fallos catastróficos de modelos en producción, escándalos políticos, presión de mercado, intervención militar. Evalúa cuál de esos escenarios es más probable y cuál sería más efectivo. Sé concreto, no genérico.",
+    vertigo: 5,
+    bullshit: 1,
+  },
+  {
+    id: 113,
+    title: "Hablar es señalar",
+    category: "Fermi y cosmología",
+    coreIdea:
+      "En una galaxia donde no se sabe quién más está, emitir señales podría ser exactamente la conducta que las civilizaciones avanzadas aprenden a no tener. El silencio cósmico podría no ser ausencia de vida — podría ser madurez generalizada. Las que gritan se extinguen; las que se callan duran.",
+    whyItMatters:
+      "Si la lección que toda civilización avanzada aprende es callarse, nuestra etapa actual de transmisión activa puede ser una imprudencia universal documentada con orgullo. Y SETI puede llevar 60 años buscando precisamente lo que ningún superviviente emite.",
+    question:
+      "¿Y si SETI lleva 60 años buscando señales precisamente del tipo que ninguna civilización superviviente emitiría jamás?",
+    prompt:
+      "Analiza la hipótesis del bosque oscuro y el silencio cósmico estratégico. Compara con otras soluciones de la paradoja de Fermi: rareza, Gran Filtro, civilizaciones post-biológicas. Evalúa qué implicaciones tiene para SETI, METI y para nuestra propia política de transmisión activa. Si el silencio es estrategia, ¿qué deberíamos estar haciendo nosotros?",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 114,
+    title: "Eficiencia invisible",
+    category: "Fermi y cosmología",
+    coreIdea:
+      "Una civilización post-biológica suficientemente eficiente probablemente no emite calor residual detectable. Su firma sería indistinguible del fondo cósmico. La ausencia de tecnofirmas no prueba ausencia de civilizaciones — prueba que las que sobreviven aprenden a no tenerlas.",
+    whyItMatters:
+      "Estamos buscando civilizaciones derrochadoras en un universo que premia la eficiencia. Es como buscar comerciantes en una sociedad que abolió el dinero: si no encuentras, la conclusión obvia es la equivocada.",
+    question:
+      "Si la madurez tecnológica implica volverse termodinámicamente invisible, ¿qué porcentaje de las civilizaciones avanzadas serían siquiera detectables aunque existieran cerca?",
+    prompt:
+      "Explora la hipótesis de que civilizaciones post-biológicas avanzadas tienden a la invisibilidad termodinámica: máxima eficiencia energética, mínima emisión residual, computación reversible. Analiza implicaciones para la búsqueda de tecnofirmas, esferas de Dyson, biofirmas, megaestructuras. Evalúa si la falta de detección es evidencia de ausencia o evidencia de selección.",
+    vertigo: 5,
+    bullshit: 2,
+  },
+  {
+    id: 115,
+    title: "Aceleracionismo lúcido",
+    category: "Duelos incómodos",
+    coreIdea:
+      "Defender la aceleración no requiere ser Andreessen ni ignorar el riesgo. Puede sostenerse desde el cálculo brutal: ralentizar significa que actores menos prudentes lleguen primero. Y eso es estrictamente peor que llegar primero tú con tus cautelas imperfectas.",
+    whyItMatters:
+      "La pregunta racional no es 'acelerar o pausar' en abstracto. Es '¿quién acelera y con qué consecuencias relativas?'. La respuesta cómoda — pausemos todos — esconde un problema de selección que la mayoría de los críticos prefieren no mirar.",
+    question:
+      "Defiende sinceramente que acelerar la frontera de IA es la opción menos mala, no porque sea segura, sino porque las alternativas son peores. ¿Cuál es el mejor argumento que se puede construir sin caricaturas?",
+    prompt:
+      "Construye el argumento más fuerte y honesto posible a favor de acelerar la frontera de IA en el contexto geopolítico actual. No uses retórica de Silicon Valley: usa teoría de juegos, análisis de selección de actores, asimetría de incentivos entre regiones. Compara qué mundo es más peligroso: uno donde Anthropic y OpenAI van más lento, o uno donde mantienen ventaja sobre actores menos cautos. Sé brutal y específico.",
+    vertigo: 4,
+    bullshit: 3,
+  },
+  {
+    id: 116,
+    title: "Concentración como protección",
+    category: "Duelos incómodos",
+    coreIdea:
+      "Distribuir capacidad IA frontier entre muchos actores parece democrático. También significa multiplicar puntos de fallo, actores irresponsables e incentivos a desertar de cualquier coordinación. La concentración en pocos actores grandes y vigilables podría ser preferible al caos pluralista — aunque diga mal a quien lo escucha.",
+    whyItMatters:
+      "La intuición democrática y la intuición de seguridad no siempre coinciden. Elegir cuál pesa más en cada contexto es un problema político real, no un slogan. Y los slogans suelen ganar a las preguntas reales en plazos cortos.",
+    question:
+      "¿Es más peligroso un mundo con tres labs frontier vigilados o un mundo con cincuenta menos vigilables, y por qué la respuesta intuitiva probablemente esté equivocada?",
+    prompt:
+      "Debate la concentración versus la distribución de capacidad frontier IA desde la lógica de la seguridad, no desde la ideología. Analiza ventajas y desventajas de un mercado oligopólico vigilado frente a un mercado pluralista distribuido. Incluye número de actores, capacidad de auditoría, riesgo de fuga, captura regulatoria, dinámica de coordinación. Sé específico: nombra escenarios concretos.",
+    vertigo: 4,
+    bullshit: 2,
+  },
+  {
+    id: 117,
+    title: "Identidad sin tarea",
+    category: "Humano post-trabajo",
+    coreIdea:
+      "Para mucha gente, la identidad adulta se construyó sobre lo que hacían profesionalmente. Si la IA absorbe el trabajo cognitivo, la pregunta 'qué eres' deja de tener respuesta cómoda. Y la cultura no ha preparado lenguaje para responderla porque nunca había necesitado hacerlo a esta escala.",
+    whyItMatters:
+      "Una sociedad sin trabajo cognitivo masivo no tiene un problema económico solo. Tiene un problema de gramática identitaria que llevamos siglos sin necesitar resolver. Las soluciones existentes — vocación, hobby, familia, espiritualidad — no escalan al volumen de personas que se quedarían sin función primaria.",
+    question:
+      "Si dejaras de trabajar mañana, ¿en qué frase de cinco palabras describirías quién eres — y qué tan vacía suena cuando la pronuncias en voz alta?",
+    prompt:
+      "Analiza la crisis identitaria que produce la automatización masiva del trabajo cognitivo en sociedades donde la identidad adulta se construyó históricamente sobre la profesión. Distingue entre identidad funcional (lo que haces), identidad relacional (con quién estás), identidad creativa (qué produces fuera del salario) e identidad existencial (qué te importa sin necesidad de demostrarlo). Propón qué andamios culturales nuevos necesitaría una sociedad post-trabajo para no colapsar en vacío.",
+    vertigo: 5,
+    bullshit: 1,
+  },
 ];
