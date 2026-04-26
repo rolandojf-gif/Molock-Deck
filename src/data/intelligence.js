@@ -17,6 +17,16 @@ export const INTELLIGENCE = {
     context: "Tras el acuerdo Trump-Xi sobre AI freeze: tres releases frontier en 18 días.",
   },
 
+  // Ticker style log under the Moloch Signal banner.
+  // Orden: más reciente arriba.
+  ticker: [
+    { time: "16:02", text: "TSMC adelanta calendario Rubin sample a Q3 2026" },
+    { time: "14:31", text: "Optimus V3: primera tarea autónoma en Fremont sin teleoperador" },
+    { time: "13:08", text: "DeepSeek V4.1 sample apareció en HuggingFace bajo licencia abierta" },
+    { time: "11:15", text: "Stargate Texas frena por permisos eléctricos: 4 GW bloqueados" },
+    { time: "10:42", text: "Anthropic memo interno filtrado sobre alignment dataset Claude 4.7" },
+  ],
+
   primary: [
     {
       id: "frontier-labs",

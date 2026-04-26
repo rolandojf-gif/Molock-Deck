@@ -30,6 +30,49 @@ function getStoredFavorites() {
   }
 }
 
+const ADVERSARIAL_PREFIX = `Argumenta la tesis opuesta a la que esta carta sugiere. Sin straw man. Construye el mejor caso posible para la posición incómoda. Si no lo consigues, di por qué.\n\n---\n\n`;
+
+function wrapAdversarial(prompt, isActive) {
+  return isActive ? ADVERSARIAL_PREFIX + prompt : prompt;
+}
+
+function getDailyCard() {
+  const today = new Date();
+  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+  return CARDS[seed % CARDS.length];
+}
+
+function formatDailyDate() {
+  const d = new Date();
+  return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
+}
+
+function buildCrossPrompt(a, b) {
+  return (
+    `Tienes dos cartas ante ti.\n\n` +
+    `--- Carta A · ${a.category} ---\n` +
+    `Título: ${a.title}\n` +
+    `Idea: ${a.coreIdea}\n` +
+    `Pregunta: ${a.question}\n\n` +
+    `--- Carta B · ${b.category} ---\n` +
+    `Título: ${b.title}\n` +
+    `Idea: ${b.coreIdea}\n` +
+    `Pregunta: ${b.question}\n\n` +
+    `--- Tarea ---\n` +
+    `Aplica la lógica de la Carta A al problema planteado por la Carta B. ` +
+    `Identifica qué se ilumina, qué se rompe en el cruce, y qué tercera pregunta emerge ` +
+    `que no aparecería en ninguna de las dos por separado. Sé específico y técnico, no abstracto. ` +
+    `No resuelvas el dilema prematuramente: déjalo vivo.`
+  );
+}
+
+function pickCrossPair() {
+  const a = CARDS[Math.floor(Math.random() * CARDS.length)];
+  const otherCategory = CARDS.filter((c) => c.category !== a.category);
+  const b = otherCategory[Math.floor(Math.random() * otherCategory.length)];
+  return { a, b };
+}
+
 function IntelCard({ card, variant = "primary" }) {
   return (
     <article className={`intel-card intel-card--${variant}`}>
@@ -79,7 +122,13 @@ export default function App() {
   const [showFavorites, setShowFavorites] = useState(false);
   const [copied, setCopied] = useState(false);
   const [copiedExpanded, setCopiedExpanded] = useState(false);
+  const [copiedCross, setCopiedCross] = useState(false);
   const [deckOpen, setDeckOpen] = useState(false);
+  const [adversarialMode, setAdversarialMode] = useState(false);
+  const [crossedCards, setCrossedCards] = useState(null);
+
+  const dailyCard = useMemo(() => getDailyCard(), []);
+  const dailyDate = useMemo(() => formatDailyDate(), []);
 
   const PROMPT_SUFFIX = `\n\nResponde en español de España. Quiero un análisis directo, técnico y sin suavidad corporativa. No me des una respuesta genérica ni motivacional. Si hay autoengaño, señálalo. Si mi premisa es floja, corrígela. Usa pensamiento de primeros principios, teoría de incentivos y consecuencias prácticas. Termina con una conclusión clara y accionable.`;
 
@@ -97,12 +146,18 @@ export default function App() {
   const favoriteCards = CARDS.filter((card) => favorites.includes(card.id));
   const isFavorite = favorites.includes(currentCard.id);
 
+  function resetCopyState() {
+    setCopied(false);
+    setCopiedExpanded(false);
+    setCopiedCross(false);
+  }
+
   function selectMode(mode) {
     setActiveMode(mode);
     setSelectedCategory("Todas");
     setShowFavorites(false);
-    setCopied(false);
-    setCopiedExpanded(false);
+    setCrossedCards(null);
+    resetCopyState();
   }
 
   function drawSimilarCard() {
@@ -111,8 +166,8 @@ export default function App() {
     const nextIndex = Math.floor(Math.random() * candidates.length);
     setCurrentCard(candidates[nextIndex]);
     setShowFavorites(false);
-    setCopied(false);
-    setCopiedExpanded(false);
+    setCrossedCards(null);
+    resetCopyState();
   }
 
   function drawCard() {
@@ -126,8 +181,25 @@ export default function App() {
 
     setCurrentCard(pool[nextIndex]);
     setShowFavorites(false);
-    setCopied(false);
-    setCopiedExpanded(false);
+    setCrossedCards(null);
+    resetCopyState();
+  }
+
+  function crossTwoCards() {
+    setCrossedCards(pickCrossPair());
+    setShowFavorites(false);
+    resetCopyState();
+  }
+
+  function activateDailyCard() {
+    setCurrentCard(dailyCard);
+    setDeckOpen(true);
+    setShowFavorites(false);
+    setCrossedCards(null);
+    resetCopyState();
+    setTimeout(() => {
+      document.querySelector(".deck-section")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 80);
   }
 
   function toggleFavorite() {
@@ -140,15 +212,24 @@ export default function App() {
   }
 
   async function copyPrompt() {
-    await navigator.clipboard.writeText(currentCard.prompt);
+    await navigator.clipboard.writeText(wrapAdversarial(currentCard.prompt, adversarialMode));
     setCopied(true);
     setTimeout(() => setCopied(false), 1400);
   }
 
   async function copyExpandedPrompt() {
-    await navigator.clipboard.writeText(currentCard.prompt + PROMPT_SUFFIX);
+    const base = wrapAdversarial(currentCard.prompt, adversarialMode);
+    await navigator.clipboard.writeText(base + PROMPT_SUFFIX);
     setCopiedExpanded(true);
     setTimeout(() => setCopiedExpanded(false), 1400);
+  }
+
+  async function copyCrossPrompt() {
+    if (!crossedCards) return;
+    const base = buildCrossPrompt(crossedCards.a, crossedCards.b);
+    await navigator.clipboard.writeText(wrapAdversarial(base, adversarialMode));
+    setCopiedCross(true);
+    setTimeout(() => setCopiedCross(false), 1400);
   }
 
   const visibleCards = showFavorites ? favoriteCards : [currentCard];
@@ -672,11 +753,231 @@ export default function App() {
           border-radius: 18px;
         }
 
+        /* ---------- Signal ticker ---------- */
+
+        .ticker {
+          margin: -16px 0 32px;
+          padding: 14px 18px;
+          border: 1px solid var(--border);
+          border-top: none;
+          border-radius: 0 0 14px 14px;
+          background: rgba(0, 0, 0, 0.32);
+          font-family: var(--mono);
+          font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .ticker-line {
+          display: grid;
+          grid-template-columns: 56px 1fr;
+          gap: 14px;
+          color: var(--text-dim);
+          line-height: 1.55;
+        }
+
+        .ticker-line:nth-child(1) { color: var(--text); }
+        .ticker-line:nth-child(2) { opacity: 0.85; }
+        .ticker-line:nth-child(3) { opacity: 0.7; }
+        .ticker-line:nth-child(4) { opacity: 0.55; }
+        .ticker-line:nth-child(5) { opacity: 0.4; }
+
+        .ticker-time { color: var(--accent); font-weight: 600; }
+
+        /* ---------- Daily card panel ---------- */
+
+        .daily-card {
+          margin-top: 24px;
+          padding: 20px 22px;
+          border: 1px solid rgba(169, 156, 255, 0.32);
+          border-left: 4px solid var(--accent);
+          border-radius: 14px;
+          background:
+            linear-gradient(90deg, rgba(169, 156, 255, 0.08), transparent 60%),
+            rgba(13, 13, 20, 0.6);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          flex-wrap: wrap;
+        }
+
+        .daily-info { flex: 1; min-width: 240px; }
+
+        .daily-eyebrow {
+          font-family: var(--mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--accent);
+          margin-bottom: 8px;
+        }
+
+        .daily-title {
+          margin: 0;
+          font-size: clamp(18px, 2vw, 22px);
+          letter-spacing: -0.02em;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+
+        .daily-meta {
+          margin-top: 8px;
+          color: var(--text-mute);
+          font-size: 11px;
+          font-family: var(--mono);
+          letter-spacing: 0.05em;
+        }
+
+        /* ---------- Adversarial mode ---------- */
+
+        .adv-row {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          margin: 0 0 14px;
+          padding: 10px 16px;
+          border: 1px solid var(--border);
+          border-radius: 12px;
+          background: rgba(0, 0, 0, 0.22);
+          flex-wrap: wrap;
+        }
+
+        .adv-row.is-active {
+          border-color: rgba(255, 90, 114, 0.45);
+          background: rgba(255, 90, 114, 0.06);
+        }
+
+        .adv-label {
+          font-family: var(--mono);
+          font-size: 11px;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: var(--text-mute);
+        }
+
+        .adv-row.is-active .adv-label { color: var(--red); }
+
+        .adv-toggle {
+          font-size: 12px;
+          padding: 7px 14px;
+        }
+
+        .adv-toggle.active {
+          background: rgba(255, 90, 114, 0.22);
+          border-color: rgba(255, 90, 114, 0.6);
+          color: #ffc4ce;
+        }
+
+        .adv-hint {
+          color: var(--text-mute);
+          font-size: 12px;
+          flex: 1;
+          min-width: 200px;
+        }
+
+        /* ---------- Cross panel ---------- */
+
+        .cross-panel {
+          border: 1px solid rgba(169, 156, 255, 0.4);
+          background: var(--surface);
+          border-radius: 24px;
+          padding: clamp(22px, 4vw, 36px);
+          box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+          animation: rise 0.28s ease both;
+        }
+
+        .cross-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 14px;
+        }
+
+        .cross-eyebrow {
+          font-family: var(--mono);
+          font-size: 11px;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--accent);
+        }
+
+        .cross-titles {
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          gap: 18px;
+          align-items: center;
+        }
+
+        .cross-side { display: flex; flex-direction: column; gap: 8px; }
+
+        .cross-cat {
+          align-self: flex-start;
+          color: var(--accent);
+          border: 1px solid rgba(169, 156, 255, 0.25);
+          background: rgba(169, 156, 255, 0.08);
+          padding: 5px 10px;
+          border-radius: 999px;
+          font-size: 11px;
+          font-family: var(--mono);
+          letter-spacing: 0.05em;
+        }
+
+        .cross-title {
+          margin: 0;
+          font-size: clamp(18px, 2.4vw, 24px);
+          letter-spacing: -0.02em;
+          line-height: 1.15;
+          font-weight: 700;
+        }
+
+        .cross-x {
+          font-size: 32px;
+          color: var(--accent-warm);
+          font-weight: 200;
+          font-family: var(--mono);
+        }
+
+        .cross-prompt-block {
+          background: rgba(0, 0, 0, 0.4);
+          border: 1px solid var(--border);
+          border-radius: 14px;
+          padding: 18px;
+          font-family: var(--mono);
+          font-size: 12.5px;
+          line-height: 1.6;
+          color: #d8d2c8;
+          white-space: pre-wrap;
+          max-height: 240px;
+          overflow-y: auto;
+        }
+
+        .cross-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+        .cross-bodies {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 18px;
+          border-top: 1px dashed var(--border);
+          padding-top: 18px;
+        }
+
+        .cross-body { display: flex; flex-direction: column; gap: 10px; }
+        .cross-body .label { color: #ffb3c0; font-size: 11px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.18em; }
+        .cross-body p { color: #e5ded3; font-size: 13.5px; line-height: 1.55; margin: 0; }
+
         /* ---------- Responsive ---------- */
 
         @media (max-width: 900px) {
           .intel-grid { grid-template-columns: 1fr; }
           .intel-row { grid-template-columns: 24px 110px 1fr; }
+          .cross-titles { grid-template-columns: 1fr; }
+          .cross-x { transform: rotate(90deg); justify-self: center; }
+          .cross-bodies { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 760px) {
@@ -718,6 +1019,17 @@ export default function App() {
           <div className="signal-context">{INTELLIGENCE.signal.context}</div>
         </div>
 
+        {INTELLIGENCE.ticker && INTELLIGENCE.ticker.length > 0 && (
+          <div className="ticker">
+            {INTELLIGENCE.ticker.map((line, idx) => (
+              <div key={idx} className="ticker-line">
+                <span className="ticker-time">{line.time}</span>
+                <span>{line.text}</span>
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* ---------- PRIMARY GRID ---------- */}
 
         <div className="section-label">Primary intelligence · 6 vectors</div>
@@ -736,6 +1048,22 @@ export default function App() {
           ))}
         </div>
 
+        {/* ---------- CARTA DEL DÍA ---------- */}
+
+        <div className="section-label">Carta del día</div>
+        <div className="daily-card">
+          <div className="daily-info">
+            <div className="daily-eyebrow">{dailyDate} · pinned 24h</div>
+            <h3 className="daily-title">{dailyCard.title}</h3>
+            <div className="daily-meta">
+              {dailyCard.category} · v{dailyCard.vertigo}/5 · b{dailyCard.bullshit}/5
+            </div>
+          </div>
+          <button className="primary daily-action" onClick={activateDailyCard}>
+            Activar carta del día
+          </button>
+        </div>
+
         {/* ---------- DECK TOGGLE ---------- */}
 
         <button
@@ -749,6 +1077,19 @@ export default function App() {
 
         {deckOpen && (
           <section className="deck-section">
+            <div className={`adv-row${adversarialMode ? " is-active" : ""}`}>
+              <span className="adv-label">{adversarialMode ? "Adversario · ON" : "Adversario · OFF"}</span>
+              <button
+                className={`adv-toggle${adversarialMode ? " active" : ""}`}
+                onClick={() => setAdversarialMode(!adversarialMode)}
+              >
+                {adversarialMode ? "Desactivar" : "Defiende lo contrario"}
+              </button>
+              <span className="adv-hint">
+                Si está activo, los prompts copiados pedirán defender la tesis opuesta.
+              </span>
+            </div>
+
             <div className="modes">
               {MODE_LIST.map((mode) => (
                 <button
@@ -767,8 +1108,8 @@ export default function App() {
                 onChange={(event) => {
                   setSelectedCategory(event.target.value);
                   setShowFavorites(false);
-                  setCopied(false);
-                  setCopiedExpanded(false);
+                  setCrossedCards(null);
+                  resetCopyState();
                 }}
               >
                 {categories.map((category) => (
@@ -782,6 +1123,10 @@ export default function App() {
 
               <button onClick={drawSimilarCard}>
                 Más como esta
+              </button>
+
+              <button onClick={crossTwoCards}>
+                Cruzar dos cartas
               </button>
 
               <button onClick={copyPrompt}>
@@ -802,10 +1147,57 @@ export default function App() {
             </section>
 
             <p className="counter">
-              Cartas disponibles en esta selección: {filteredCards.length} / {CARDS.length}
+              {crossedCards
+                ? "Intersección activa · dos cartas cruzadas"
+                : `Cartas disponibles en esta selección: ${filteredCards.length} / ${CARDS.length}`}
             </p>
 
-            {showFavorites && favoriteCards.length === 0 ? (
+            {crossedCards ? (
+              <article className="cross-panel">
+                <header className="cross-head">
+                  <span className="cross-eyebrow">Intersección · {crossedCards.a.category} × {crossedCards.b.category}</span>
+                  <button onClick={() => setCrossedCards(null)}>Cerrar cruce</button>
+                </header>
+
+                <div className="cross-titles">
+                  <div className="cross-side">
+                    <span className="cross-cat">Carta A · {crossedCards.a.category}</span>
+                    <h3 className="cross-title">{crossedCards.a.title}</h3>
+                  </div>
+                  <div className="cross-x">×</div>
+                  <div className="cross-side">
+                    <span className="cross-cat">Carta B · {crossedCards.b.category}</span>
+                    <h3 className="cross-title">{crossedCards.b.title}</h3>
+                  </div>
+                </div>
+
+                <pre className="cross-prompt-block">{buildCrossPrompt(crossedCards.a, crossedCards.b)}</pre>
+
+                <div className="cross-actions">
+                  <button className="primary" onClick={copyCrossPrompt}>
+                    {copiedCross ? "Cruce copiado" : "Copiar prompt cruzado"}
+                  </button>
+                  <button onClick={crossTwoCards}>
+                    Otro cruce
+                  </button>
+                </div>
+
+                <div className="cross-bodies">
+                  <div className="cross-body">
+                    <div className="label">Idea A</div>
+                    <p>{crossedCards.a.coreIdea}</p>
+                    <div className="label">Pregunta A</div>
+                    <p>{crossedCards.a.question}</p>
+                  </div>
+                  <div className="cross-body">
+                    <div className="label">Idea B</div>
+                    <p>{crossedCards.b.coreIdea}</p>
+                    <div className="label">Pregunta B</div>
+                    <p>{crossedCards.b.question}</p>
+                  </div>
+                </div>
+              </article>
+            ) : showFavorites && favoriteCards.length === 0 ? (
               <div className="empty">
                 Todavía no has guardado favoritas. Moloch está decepcionado, pero se recuperará.
               </div>
